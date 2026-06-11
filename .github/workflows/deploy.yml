@@ -3,10 +3,11 @@ name: Deploy Website Python
 on:
   push:
     branches:
-      - main  # Menjalankan otomatisasi setiap ada push ke branch main
+      - main
 
 permissions:
   contents: write
+  pages: write      # Tambahkan izin untuk GitHub Pages
 
 jobs:
   build-and-deploy:
@@ -24,8 +25,8 @@ jobs:
       run: python script.py
 
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
+      uses: peaceiris/actions-gh-pages@v6 # Upgrade ke v6 (versi terbaru & lebih stabil)
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./
-        publish_branch: gh-pages  # Hasil file index.html akan disimpan di branch ini
+        publish_dir: ./public            # Ubah ke ./public agar hanya web-nya saja yang di-deploy
+        publish_branch: gh-pages
