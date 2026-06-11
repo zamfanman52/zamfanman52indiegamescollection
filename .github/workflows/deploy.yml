@@ -7,7 +7,7 @@ on:
 
 permissions:
   contents: write
-  pages: write      # Tambahkan izin untuk GitHub Pages
+  pages: write      # Mengizinkan GitHub Actions untuk menulis ke GitHub Pages
 
 jobs:
   build-and-deploy:
@@ -25,8 +25,8 @@ jobs:
       run: python script.py
 
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v6 # Upgrade ke v6 (versi terbaru & lebih stabil)
+      uses: peaceiris/actions-gh-pages@v4 # Diubah ke v4 (versi stabil terbaru yang valid)
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public            # Ubah ke ./public agar hanya web-nya saja yang di-deploy
+        publish_dir: ./public            # Mengambil isi folder public hasil dari script.py
         publish_branch: gh-pages
