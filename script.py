@@ -1,4 +1,13 @@
-import json
+import os
+
+# Buat folder 'public' jika belum ada
+os.makedirs("public", exist_ok=True)
+
+# Simpan index.html ke dalam folder public
+with open("public/index.html", "w", encoding="utf-8") as f:
+    f.write(final_html)
+
+print("Katalog public/index.html berhasil dibuat!")
 
 # Data Lengkap 12 Game Indie
 games_data = [
@@ -29,7 +38,7 @@ games_data = [
         "developer": "Heart Machine",
         "genre": "Action RPG, Hack and Slash",
         "synopsis": "Sebuah RPG aksi petualangan 2D dengan gaya visual pixel-art 16-bit yang memukau. Pemain mengendalikan Drifter, seorang pengembara yang mengidap penyakit misterius, menjelajahi reruntuhan dunia kuno.",
-        "rating": "Very Positive (4%)",
+        "rating": "Very Positive (94%)",
         "steam_url": "https://store.steampowered.com/app/257850/Hyper_Light_Drifter/"
     },
     {
