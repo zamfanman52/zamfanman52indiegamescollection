@@ -1,14 +1,5 @@
 import os
 
-# Buat folder 'public' jika belum ada
-os.makedirs("public", exist_ok=True)
-
-# Simpan index.html ke dalam folder public
-with open("public/index.html", "w", encoding="utf-8") as f:
-    f.write(final_html)
-
-print("Katalog public/index.html berhasil dibuat!")
-
 # Data Lengkap 12 Game Indie
 games_data = [
     {
@@ -270,10 +261,14 @@ for game in games_data:
         </div>
     """
 
-# Satukan data ke template utama dan simpan menjadi index.html
+# Satukan data ke template utama
 final_html = html_template.format(game_cards=cards_html)
 
-with open("index.html", "w", encoding="utf-8") as f:
+# Buat folder 'public' jika belum ada
+os.makedirs("public", exist_ok=True)
+
+# Simpan index.html ke dalam folder public (Urutan dipindah ke bawah setelah final_html siap)
+with open("public/index.html", "w", encoding="utf-8") as f:
     f.write(final_html)
 
-print("Katalog index.html berhasil dibuat!")
+print("Katalog public/index.html berhasil dibuat!")
